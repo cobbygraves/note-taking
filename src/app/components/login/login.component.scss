@@ -1,0 +1,71 @@
+$primary-color: #4a90e2;
+$font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+.login-container {
+  background: white;
+  padding: 1.5rem;
+  margin: 0 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: $primary-color;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  input {
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+
+  button {
+    padding: 0.75rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+// Responsive design
+@media (min-width: 768px) {
+  .login-form {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    input,
+    button {
+      font-size: 0.95rem;
+    }
+  }
+}
