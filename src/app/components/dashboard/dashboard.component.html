@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+@if(noteService.notes().length === 0){
+<div class="no-post">
+  <app-no-post></app-no-post>
+</div>
+
+}@else {
+<div class="dashboard">
+  @for(note of noteService.notes(); track note.id){
+  <app-note-card></app-note-card>
+  }
+</div>
+}
