@@ -29,4 +29,9 @@ export class UserService {
     this.userToken = token;
     this.router.navigate(['notes']);
   }
+
+  logoutUser() {
+    this.userToken = '';
+    this.router.navigate(['login']);
+  }
 }

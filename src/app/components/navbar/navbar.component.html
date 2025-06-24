@@ -1,0 +1,21 @@
+<div class="navbar">
+  <div class="title"><span>CodeNote</span><i class="fa-solid fa-pen"></i></div>
+
+  <div class="actions">
+    <a [routerLink]="['create']" class="settings-btn">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+    <div class="search-box">
+      <span class="icon">🔍</span>
+      <input type="text" placeholder="Search by title, content, or tags..." />
+    </div>
+    @if(userService.isLoggedIn()){
+    <button class="settings-btn"><i class="fa-solid fa-user"></i></button>
+    }@else {
+
+    <button class="settings-btn" (click)="userService.logoutUser()">
+      <i class="fa-solid fa-power-off"></i>
+    </button>
+    }
+  </div>
+</div>
