@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { NoPostComponent } from '../no-post/no-post.component';
 import { NoteCardComponent } from '../note-card/note-card.component';
@@ -9,6 +9,13 @@ import { NoteCardComponent } from '../note-card/note-card.component';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   constructor(public noteService: NoteService) {}
+
+  ngOnInit() {
+    this.noteService.readAllNotes().subscribe({
+      next: (notes) => this.noteService.notes.set(notes),
+      error: (err) => console.log(err),
+    });
+  }
 }

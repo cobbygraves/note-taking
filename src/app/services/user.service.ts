@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   userToken: string = '';
 
@@ -25,9 +27,14 @@ export class UserService {
     return !!this.userToken;
   }
 
-  loginUser(token: string) {
-    this.userToken = token;
-    this.router.navigate(['notes']);
+  loginUser(userData: { username: string; password: string }) {
+    this.http.post(`${environment.baseURL}/user/login`, userData).subscribe({
+      next: (res: any) => {
+        this.setUserToken(res.accessToken);
+        this.router.navigate(['notes']);
+      },
+      error: (err) => console.log(err), // create error service to handle errors
+    });
   }
 
   logoutUser() {

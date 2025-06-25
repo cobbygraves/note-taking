@@ -6,7 +6,7 @@
 }@else {
 <div class="dashboard">
   @for(note of noteService.notes(); track note.id){
-  <app-note-card></app-note-card>
+  <app-note-card [note]="note"></app-note-card>
   }
 </div>
 }
