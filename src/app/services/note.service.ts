@@ -22,8 +22,15 @@ export class NoteService {
     return this.http.get<Note[]>(`${environment.baseURL}/notes`);
   }
 
+  //read a single note
+  readNote(id: string | number): Observable<Note> {
+    return this.http.get<Note>(`${environment.baseURL}/notes/${id}`);
+  }
+
   //update a single note
-  updateNote(id: number, update: Note) {
+  updateNote(id: string | number, update: Note) {
+    console.log(update);
+    console.log(id);
     return this.http.put(`${environment.baseURL}/notes/${id}`, update);
   }
 

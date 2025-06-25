@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="showNote(note?.id)">
   <h2 class="title">{{ note?.title }}</h2>
   <div class="tags">
     @for(tag of note?.tags; track tag){
@@ -15,8 +15,10 @@
           (onChange)="archiveNote(note?.id)"
         />
       </div>
-
-      <button (click)="deleteNote(note?.id)">delete</button>
+      <div class="actions">
+        <button (click)="showEditNote(note?.id)" class="edit">edit</button>
+        <button (click)="deleteNote(note?.id)" class="delete">delete</button>
+      </div>
     </div>
   </div>
 </div>

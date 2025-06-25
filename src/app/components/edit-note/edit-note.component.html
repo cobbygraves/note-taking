@@ -1,0 +1,43 @@
+<div class="note-container">
+  <form
+    class="note-content"
+    [formGroup]="addNoteForm"
+    (ngSubmit)="updateNote()"
+  >
+    <h2 class="new-post">Edit Note</h2>
+    <input
+      type="text"
+      class="title-input"
+      placeholder="Enter a title..."
+      formControlName="title"
+    />
+
+    <div class="tags-section">
+      <label for="tags">Tags</label>
+      <input
+        id="tags"
+        type="text"
+        placeholder="e.g. Work, Planning"
+        formControlName="tags"
+      />
+    </div>
+
+    <div class="last-edited">
+      <label>Last edited</label>
+      <span>Not yet saved</span>
+    </div>
+
+    <textarea
+      class="note-content"
+      placeholder="Start typing your note here..."
+      formControlName="content"
+    ></textarea>
+
+    <div class="actions">
+      <button class="save" type="submit" [disabled]="!addNoteForm.valid">
+        Save Note
+      </button>
+      <button class="cancel" (click)="cancelUpdatePost()">Cancel</button>
+    </div>
+  </form>
+</div>
