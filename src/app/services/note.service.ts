@@ -32,7 +32,9 @@ export class NoteService {
     return this.http.delete(`${environment.baseURL}/notes/${id}`);
   }
 
-  archiveNote(id: number) {
-    return this.http.get(`${environment.baseURL}/notes/${id}/archive`);
+  archiveNote(id: number | undefined, isArchived: boolean) {
+    return this.http.get(
+      `${environment.baseURL}/notes/${id}/archive?isArchived=${!isArchived}`
+    );
   }
 }

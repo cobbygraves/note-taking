@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  baseURL: 'https://amt-server-22ce.onrender.com',
+  baseURL: 'http://localhost:5000',
 };

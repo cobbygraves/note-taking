@@ -6,4 +6,17 @@
     }
   </div>
   <p class="date">{{ note?.createdAt }}</p>
+  <div>
+    <div class="footer">
+      <div class="archive">
+        <small>{{ checked ? "Unarchive" : "Archive" }}</small>
+        <p-toggleswitch
+          [(ngModel)]="checked"
+          (onChange)="archiveNote(note?.id)"
+        />
+      </div>
+
+      <button (click)="deleteNote(note?.id)">delete</button>
+    </div>
+  </div>
 </div>
