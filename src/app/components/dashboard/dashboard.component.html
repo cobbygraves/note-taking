@@ -13,6 +13,20 @@
       >
     </div>
     <hr />
+
+    <div class="select-container">
+      <select
+        name="font"
+        id="font"
+        [(ngModel)]="fontType"
+        (change)="changeFontSize($event)"
+      >
+        <option value="serif">Serif</option>
+        <option value="sans-serif" selected>Sans-Serif</option>
+        <option value="monospace">Monospace</option>
+      </select>
+    </div>
+
     <p>Tags</p>
     @for(tag of tags; track tag._id){
     <div class="sidebar-item" (click)="showNotesByTag(tag._id)">
@@ -20,26 +34,6 @@
       <span class="sidebar-item__label">{{ tag._id }}</span>
     </div>
     }
-    <!-- <div class="sidebar-item">
-      <i class="fa-solid fa-tag"></i>
-      <span class="sidebar-item__label">Work</span>
-    </div>
-    <div class="sidebar-item">
-      <i class="fa-solid fa-tag"></i>
-      <span class="sidebar-item__label">Planning</span>
-    </div>
-    <div class="sidebar-item">
-      <i class="fa-solid fa-tag"></i>
-      <span class="sidebar-item__label">Dev</span>
-    </div>
-    <div class="sidebar-item">
-      <i class="fa-solid fa-tag"></i>
-      <span class="sidebar-item__label">React</span>
-    </div>
-    <div class="sidebar-item">
-      <i class="fa-solid fa-tag"></i>
-      <span class="sidebar-item__label">TypeScript</span>
-    </div> -->
 
     <div class="logout">
       <i class="fa-solid fa-right-from-bracket tag"></i>

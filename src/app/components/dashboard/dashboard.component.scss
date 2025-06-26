@@ -123,3 +123,28 @@ hr {
   border: 0.5px solid #bab8b8;
   margin: 0.5em 0;
 }
+
+.select-container {
+  width: 100%;
+
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+
+    option {
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+}
