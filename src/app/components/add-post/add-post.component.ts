@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NoteService } from '../../services/note.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-post',
-  imports: [ReactiveFormsModule, ProgressSpinnerModule],
+  imports: [ReactiveFormsModule, ProgressSpinnerModule, CommonModule],
   templateUrl: './add-post.component.html',
   styleUrl: './add-post.component.scss',
 })
