@@ -1,3 +1,53 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  .left-side {
+    width: 15%;
+
+    background-color: #f0f0f0;
+    display: none;
+    margin-top: 60px;
+    padding: 13px;
+    @media (min-width: 1024px) {
+      display: block;
+    }
+    p {
+      margin: 13px;
+      color: #757575;
+      font-weight: 500;
+      font-size: 0.8rem;
+
+      @media (min-width: 1280px) {
+        font-size: 1.3rem;
+      }
+    }
+
+    .sidebar-item__label {
+      font-size: 0.9rem;
+    }
+
+    .logout {
+      position: absolute;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      bottom: 10px;
+      font-weight: 500;
+      color: #f32727;
+      padding: 0.5em 1em;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+  }
+
+  .right-side {
+    flex: 1;
+    background-color: #ffffff;
+  }
+}
 .dashboard {
   padding: 20px;
   display: grid;
@@ -36,4 +86,40 @@
 .grid-item {
   background-color: #f0f0f0;
   padding: 20px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 0.7em;
+
+  i {
+    font-size: 15px;
+    @media (min-width: 1280px) {
+      font-size: 20px;
+    }
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 11px;
+    color: gray;
+
+    @media (min-width: 1280px) {
+      font-size: 17px;
+    }
+  }
+
+  &:hover {
+    background-color: #e0e0e0;
+    border-radius: 7px;
+  }
+}
+
+hr {
+  border: 0.5px solid #bab8b8;
+  margin: 0.5em 0;
 }

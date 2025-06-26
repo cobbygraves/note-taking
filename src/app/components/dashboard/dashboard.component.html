@@ -1,16 +1,70 @@
-@if(isLoading) {
-<div class="loader">
-  <p-progress-spinner ariaLabel="loading" />
-</div>
-}@else { @if(noteService.notes().length === 0){
-<div class="no-post">
-  <app-no-post></app-no-post>
-</div>
+<div class="flex-container">
+  <div class="left-side">
+    <div class="sidebar-item">
+      <i class="fa-solid fa-house"></i>
+      <span class="sidebar-item__label" (click)="showAllNotes()"
+        >All Notes</span
+      >
+    </div>
+    <div class="sidebar-item">
+      <i class="fa-solid fa-archive"></i>
+      <span class="sidebar-item__label" (click)="showArchivedNotes()"
+        >Archived Notes</span
+      >
+    </div>
+    <hr />
+    <p>Tags</p>
+    @for(tag of tags; track tag._id){
+    <div class="sidebar-item" (click)="showNotesByTag(tag._id)">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">{{ tag._id }}</span>
+    </div>
+    }
+    <!-- <div class="sidebar-item">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">Work</span>
+    </div>
+    <div class="sidebar-item">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">Planning</span>
+    </div>
+    <div class="sidebar-item">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">Dev</span>
+    </div>
+    <div class="sidebar-item">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">React</span>
+    </div>
+    <div class="sidebar-item">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">TypeScript</span>
+    </div> -->
 
-}@else {
-<div class="dashboard">
-  @for(note of noteService.notes(); track note.id){
-  <app-note-card [note]="note"></app-note-card>
-  }
+    <div class="logout">
+      <i class="fa-solid fa-right-from-bracket tag"></i>
+      <span class="sidebar-item__label" (click)="userService.logoutUser()"
+        >Logout</span
+      >
+    </div>
+  </div>
+
+  <div class="right-side">
+    @if(isLoading) {
+    <div class="loader">
+      <p-progress-spinner ariaLabel="loading" />
+    </div>
+    }@else { @if(noteService.notes().length === 0){
+    <div class="no-post">
+      <app-no-post></app-no-post>
+    </div>
+
+    }@else {
+    <div class="dashboard">
+      @for(note of noteService.notes(); track note.id){
+      <app-note-card [note]="note"></app-note-card>
+      }
+    </div>
+    } }
+  </div>
 </div>
-} }
