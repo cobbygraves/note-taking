@@ -22,4 +22,27 @@ export class DashboardComponent implements OnInit {
       error: (err) => console.log(err),
     });
   }
+
+  showArchivedNotes() {
+    this.isLoading = true;
+    this.noteService.getArchivedNotes().subscribe({
+      next: (notes) => {
+        console.log(notes);
+        this.noteService.notes.set(notes);
+        this.isLoading = false;
+      },
+      error: (err) => console.log(err),
+    });
+  }
+
+  showAllNotes() {
+    this.isLoading = true;
+    this.noteService.readAllNotes().subscribe({
+      next: (notes) => {
+        this.noteService.notes.set(notes);
+        this.isLoading = false;
+      },
+      error: (err) => console.log(err),
+    });
+  }
 }

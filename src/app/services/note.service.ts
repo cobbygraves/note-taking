@@ -44,4 +44,9 @@ export class NoteService {
       `${environment.baseURL}/notes/${id}/archive?isArchived=${!isArchived}`
     );
   }
+
+  //get all archived notes
+  getArchivedNotes(): Observable<Note[]> {
+    return this.http.get<Note[]>(`${environment.baseURL}/notes/archived`);
+  }
 }
