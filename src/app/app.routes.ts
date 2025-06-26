@@ -28,6 +28,7 @@ export const routes: Routes = [
   {
     path: 'notes/:id',
     component: DetailsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'create',
