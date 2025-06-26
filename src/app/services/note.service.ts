@@ -59,4 +59,11 @@ export class NoteService {
   getNotesByTag(tag: string): Observable<Note[]> {
     return this.http.get<Note[]>(`${environment.baseURL}/notes/tags/${tag}`);
   }
+
+  //search notes
+  searchNotes(term: string): Observable<Note[]> {
+    return this.http.get<Note[]>(
+      `${environment.baseURL}/notes/search?term=${term}`
+    );
+  }
 }
