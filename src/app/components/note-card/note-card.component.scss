@@ -71,28 +71,31 @@
 
     .actions {
       display: flex;
-      gap: 0.5rem;
+
       align-items: center;
     }
 
-    button.delete {
-      padding: 0.5rem 0.75rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 7px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      background-color: #f8d7da;
-      color: #721c24;
-    }
+    // button.delete {
+    //   padding: 0.5rem 0.75rem;
+    //   border: none;
+    //   cursor: pointer;
+    //   border-radius: 7px;
+    //   font-size: 0.75rem;
+    //   font-weight: 500;
+    //   background-color: #f8d7da;
+    //   color: #721c24;
+    // }
 
     button.edit {
-      padding: 0.5rem 0.75rem;
+      padding: 0.3rem 0.9rem;
+      position: relative;
+      z-index: 2000;
       border: none;
       cursor: pointer;
       border-radius: 7px;
-      font-size: 0.75rem;
+      font-size: 1.1rem;
       font-weight: 500;
+      width: 65px;
       background-color: #d1e7dd;
       color: #0f5132;
     }

@@ -27,7 +27,7 @@ export class NoteCardComponent implements OnInit {
   }
 
   showEditNote(id: number | undefined) {
-    this.router.navigate([`notes/${id}/edit`]);
+    this.router.navigate(['notes', id, 'edit']);
   }
 
   archiveNote(id: number | undefined) {
