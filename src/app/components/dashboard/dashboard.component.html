@@ -14,7 +14,13 @@
     </div>
     <hr />
     <p>Tags</p>
-    <div class="sidebar-item">
+    @for(tag of tags; track tag._id){
+    <div class="sidebar-item" (click)="showNotesByTag(tag._id)">
+      <i class="fa-solid fa-tag"></i>
+      <span class="sidebar-item__label">{{ tag._id }}</span>
+    </div>
+    }
+    <!-- <div class="sidebar-item">
       <i class="fa-solid fa-tag"></i>
       <span class="sidebar-item__label">Work</span>
     </div>
@@ -33,6 +39,13 @@
     <div class="sidebar-item">
       <i class="fa-solid fa-tag"></i>
       <span class="sidebar-item__label">TypeScript</span>
+    </div> -->
+
+    <div class="logout">
+      <i class="fa-solid fa-right-from-bracket tag"></i>
+      <span class="sidebar-item__label" (click)="userService.logoutUser()"
+        >Logout</span
+      >
     </div>
   </div>
 

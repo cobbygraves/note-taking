@@ -27,6 +27,20 @@
     .sidebar-item__label {
       font-size: 0.9rem;
     }
+
+    .logout {
+      position: absolute;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      bottom: 10px;
+      font-weight: 500;
+      color: #f32727;
+      padding: 0.5em 1em;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
   }
 
   .right-side {
