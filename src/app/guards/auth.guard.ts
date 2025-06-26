@@ -10,6 +10,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     const token = this.userService.getUserToken();
+
     if (token) {
       return true;
     }

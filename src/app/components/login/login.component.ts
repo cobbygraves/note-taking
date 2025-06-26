@@ -30,7 +30,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  loginUser(token: { email: string; password: string }) {
-    this.userService.loginUser(token.email);
+  loginUser() {
+    this.userService.loginUser({
+      username: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    });
   }
 }

@@ -1,6 +1,10 @@
 <div class="note-container">
-  <form class="note-content" [formGroup]="addNoteForm" (ngSubmit)="saveNote()">
-    <h2 class="new-post">New Note</h2>
+  <form
+    class="note-content"
+    [formGroup]="addNoteForm"
+    (ngSubmit)="updateNote()"
+  >
+    <h2 class="new-post">Edit Note</h2>
     <input
       type="text"
       class="title-input"
@@ -31,9 +35,9 @@
 
     <div class="actions">
       <button class="save" type="submit" [disabled]="!addNoteForm.valid">
-        {{ isLoading ? "Saving..." : "Save Note" }}
+        Save Note
       </button>
-      <button class="cancel" (click)="cancelAddPost()">Cancel</button>
+      <button class="cancel" (click)="cancelUpdatePost()">Cancel</button>
     </div>
   </form>
 </div>

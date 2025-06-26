@@ -1,1 +1,49 @@
-<p>details works!</p>
+<div class="note-container">
+  @if(isLoading) {
+  <div class="loader">
+    <p-progress-spinner ariaLabel="loading" />
+  </div>
+  }@else {
+
+  <div class="note-preview">
+    <div class="title-date-container">
+      <h2 class="title">{{ this.note?.title }}</h2>
+      <span class="date-created"
+        ><b>Date Created:</b> {{ this.note?.createdAt }}</span
+      >
+    </div>
+
+    <div class="meta-container">
+      <div class="note-meta">
+        @for(tag of this.note?.tags; track tag){
+        <span class="tag {{ tag }}">{{ tag }}</span>
+        }
+        <!-- <span class="tag">Dev</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span> -->
+      </div>
+      <div class="archive-date-created">
+        <span class="status archived">{{
+          this.note?.isArchived ? "Archived" : ""
+        }}</span>
+      </div>
+    </div>
+
+    <p class="note-section">
+      {{ this.note?.content }}
+    </p>
+
+    <div class="actions">
+      <a [routerLink]="['notes']" class="back">back</a>
+      <button class="delete" (click)="showDeleteModalHandler()">delete</button>
+    </div>
+  </div>
+  }
+</div>
+
+@if(showDeleteModal){
+<app-delete-modal
+  (deleteNoteEvent)="deleteNote()"
+  (cancelDeleteEvent)="cancelDelete()"
+></app-delete-modal>
+}

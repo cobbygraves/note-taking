@@ -5,6 +5,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
 
 export const routes: Routes = [
   {
@@ -27,11 +28,15 @@ export const routes: Routes = [
   {
     path: 'notes/:id',
     component: DetailsComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'create',
     component: AddPostComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'notes/:id/edit',
+    component: EditNoteComponent,
     canActivate: [AuthGuard],
   },
   {

@@ -2,6 +2,14 @@ $primary-color: #4a90e2;
 $font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-content {
   background: white;
   padding: 1.5rem;
   margin: 0 1rem;
