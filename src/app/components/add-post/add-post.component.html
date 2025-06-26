@@ -7,6 +7,11 @@
       placeholder="Enter a title..."
       formControlName="title"
     />
+    @if(addNoteForm.get('title')?.invalid && addNoteForm.get('title')?.touched){
+    <small *ngIf="addNoteForm.get('title')?.errors?.['required']"
+      >Title is required</small
+    >
+    }
 
     <div class="tags-section">
       <label for="tags">Tags</label>
@@ -28,7 +33,12 @@
       placeholder="Start typing your note here..."
       formControlName="content"
     ></textarea>
-
+    @if(addNoteForm.get('content')?.invalid &&
+    addNoteForm.get('content')?.touched){
+    <small *ngIf="addNoteForm.get('content')?.errors?.['required']"
+      >Content is required</small
+    >
+    }
     <div class="actions">
       <button class="save" type="submit" [disabled]="!addNoteForm.valid">
         {{ isLoading ? "Saving..." : "Save Note" }}

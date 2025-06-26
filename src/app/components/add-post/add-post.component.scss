@@ -4,6 +4,10 @@
   align-items: center;
   height: 90vh;
   overflow: hidden;
+
+  small {
+    color: #a00808;
+  }
 }
 
 .loading {
@@ -37,8 +41,6 @@
     padding: 10px;
     border-radius: 7px;
     width: 100%;
-    margin-bottom: 1.5rem;
-    // color: white;
   }
 
   .tags-section,
@@ -49,6 +51,7 @@
       display: block;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      margin-top: 13px;
     }
 
     input {
