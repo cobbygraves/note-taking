@@ -5,10 +5,18 @@
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
   width: 100%;
-  min-height: 175px;
+  min-height: 200px;
   font-family: "Segoe UI", sans-serif;
   transition: transform 0.2s ease;
   cursor: pointer;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 2000;
+  }
 
   &:hover {
     transform: translateY(-4px);
@@ -26,20 +34,12 @@
     margin: 0.5rem 0;
 
     .tag {
-      padding-right: 0.6rem;
+      padding: 0.3rem;
       border-radius: 4px;
       font-size: 0.75rem;
       font-weight: 500;
-
-      &.dev {
-        background-color: #d1e7dd;
-        color: #0f5132;
-      }
-
-      &.react {
-        background-color: #cfe2ff;
-        color: #084298;
-      }
+      background-color: #cfe2ff;
+      color: #084298;
     }
   }
 
@@ -50,6 +50,7 @@
 
   .footer {
     position: absolute;
+
     bottom: 0.5rem;
     display: flex;
     justify-content: space-between;

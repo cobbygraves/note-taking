@@ -1,51 +1,42 @@
 <div class="note-container">
   <div class="note-preview">
     <div class="title-date-container">
-      <h2 class="title">TypeScript Migration Guide</h2>
-      <span class="date-created">Date Created: 26 Oct 2024</span>
+      <h2 class="title">{{ this.note?.title }}</h2>
+      <span class="date-created"
+        ><b>Date Created:</b> {{ this.note?.createdAt }}</span
+      >
     </div>
 
     <div class="meta-container">
       <div class="note-meta">
-        <span class="tag">Dev</span>
+        @for(tag of this.note?.tags; track tag){
+        <span class="tag {{ tag }}">{{ tag }}</span>
+        }
+        <!-- <span class="tag">Dev</span>
         <span class="tag">React</span>
-        <span class="tag">TypeScript</span>
+        <span class="tag">TypeScript</span> -->
       </div>
       <div class="archive-date-created">
-        <span class="status archived">Archived</span>
+        <span class="status archived">{{
+          this.note?.isArchived ? "Archived" : ""
+        }}</span>
       </div>
     </div>
 
-    <div class="note-section">
-      <h3>Initial Setup</h3>
-      <ul>
-        <li>Install TypeScript dependencies</li>
-        <li>Configure tsconfig.json</li>
-        <li>Set up build pipeline</li>
-      </ul>
-    </div>
-
-    <div class="note-section">
-      <h3>Migration Strategy</h3>
-      <ul>
-        <li>Start with newer modules</li>
-        <li>Add type definitions gradually</li>
-        <li>Use 'any' temporarily for complex cases</li>
-      </ul>
-    </div>
-
-    <div class="note-section">
-      <h3>Testing Approach</h3>
-      <ul>
-        <li>Update test configuration</li>
-        <li>Add type testing</li>
-        <li>Validate build process</li>
-      </ul>
-    </div>
+    <p class="note-section">
+      {{ this.note?.content }}
+    </p>
 
     <div class="actions">
       <a [routerLink]="['notes']" class="back">back</a>
-      <button class="delete">delete</button>
+      <button class="delete" (click)="showDeleteModalHandler()">delete</button>
     </div>
   </div>
 </div>
+
+@if(showDeleteModal){
+<app-delete-modal
+  (deleteNoteEvent)="deleteNote()"
+  (cancelDeleteEvent)="cancelDelete()"
+></app-delete-modal>
+}

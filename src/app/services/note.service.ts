@@ -35,7 +35,7 @@ export class NoteService {
   }
 
   //delete a single note
-  deleteNote(id: number) {
+  deleteNote(id: string | number) {
     return this.http.delete(`${environment.baseURL}/notes/${id}`);
   }
 
