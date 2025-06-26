@@ -5,10 +5,19 @@
     <a [routerLink]="['create']" class="settings-btn">
       <i class="fa-solid fa-pen-to-square"></i>
     </a>
-    <div class="search-box">
+    <form
+      class="search-box"
+      #searchForm="ngForm"
+      (ngSubmit)="searchNote(searchForm)"
+    >
       <span class="icon">🔍</span>
-      <input type="text" placeholder="Search by title, content, or tags..." />
-    </div>
+      <input
+        type="text"
+        placeholder="Search by title, content, or tags..."
+        name="term"
+        [(ngModel)]="term"
+      />
+    </form>
     @if(userService.isLoggedIn()){
     <button class="settings-btn"><i class="fa-solid fa-user"></i></button>
     }@else {
