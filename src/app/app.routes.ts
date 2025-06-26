@@ -37,7 +37,7 @@ export const routes: Routes = [
   {
     path: 'notes/:id/edit',
     component: EditNoteComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

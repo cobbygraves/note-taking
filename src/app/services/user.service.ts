@@ -7,10 +7,8 @@ import { environment } from '../environment';
   providedIn: 'root',
 })
 export class UserService {
-  userToken: string = '';
-  constructor(private router: Router, private http: HttpClient) {
-    this.userToken = localStorage.getItem('token') || '';
-  }
+  userToken: string = localStorage.getItem('token') || '';
+  constructor(private router: Router, private http: HttpClient) {}
 
   setUserToken(token: string) {
     this.userToken = token;
@@ -21,11 +19,12 @@ export class UserService {
   }
 
   clearUserToken() {
+    localStorage.removeItem('token');
     this.userToken = '';
   }
 
   isLoggedIn() {
-    return this.userToken !== null || this.userToken !== '';
+    return this.userToken ? true : false;
   }
 
   loginUser(userData: { username: string; password: string }) {
