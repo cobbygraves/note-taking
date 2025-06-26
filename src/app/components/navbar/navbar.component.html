@@ -1,7 +1,5 @@
 <div class="navbar">
-  <a [routerLink]="['dashboard']" class="title"
-    ><span>CodeNote</span><i class="fa-solid fa-pen"></i
-  ></a>
+  <a [routerLink]="['dashboard']" class="title"><span>CodeNote</span></a>
 
   <div class="actions">
     <a [routerLink]="['create']" class="settings-btn">
@@ -14,7 +12,6 @@
     @if(userService.isLoggedIn()){
     <button class="settings-btn"><i class="fa-solid fa-user"></i></button>
     }@else {
-
     <button class="settings-btn" (click)="userService.logoutUser()">
       <i class="fa-solid fa-power-off"></i>
     </button>

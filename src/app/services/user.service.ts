@@ -7,9 +7,10 @@ import { environment } from '../environment';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private router: Router, private http: HttpClient) {}
-
   userToken: string = '';
+  constructor(private router: Router, private http: HttpClient) {
+    this.userToken = localStorage.getItem('token') || '';
+  }
 
   setUserToken(token: string) {
     this.userToken = token;
@@ -24,13 +25,14 @@ export class UserService {
   }
 
   isLoggedIn() {
-    return !!this.userToken;
+    return this.userToken !== null || this.userToken !== '';
   }
 
   loginUser(userData: { username: string; password: string }) {
     this.http.post(`${environment.baseURL}/user/login`, userData).subscribe({
       next: (res: any) => {
         this.setUserToken(res.accessToken);
+        localStorage.setItem('token', res.accessToken);
         this.router.navigate(['notes']);
       },
       error: (err) => console.log(err), // create error service to handle errors
@@ -40,5 +42,6 @@ export class UserService {
   logoutUser() {
     this.userToken = '';
     this.router.navigate(['login']);
+    localStorage.removeItem('token');
   }
 }

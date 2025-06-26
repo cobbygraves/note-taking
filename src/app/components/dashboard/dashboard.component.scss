@@ -17,6 +17,14 @@
   }
 }
 
+.loader {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .no-post {
   height: 100vh;
   overflow: hidden;

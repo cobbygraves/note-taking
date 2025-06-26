@@ -1,4 +1,10 @@
 <div class="note-container">
+  @if(isLoading) {
+  <div class="loader">
+    <p-progress-spinner ariaLabel="loading" />
+  </div>
+  }@else {
+
   <div class="note-preview">
     <div class="title-date-container">
       <h2 class="title">{{ this.note?.title }}</h2>
@@ -32,6 +38,7 @@
       <button class="delete" (click)="showDeleteModalHandler()">delete</button>
     </div>
   </div>
+  }
 </div>
 
 @if(showDeleteModal){

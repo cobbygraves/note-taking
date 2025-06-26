@@ -6,15 +6,17 @@ import { ActivatedRoute } from '@angular/router';
 import { Note } from '../../models/note';
 // import moment from 'moment';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-details',
-  imports: [RouterLink, DeleteModalComponent],
+  imports: [RouterLink, DeleteModalComponent, ProgressSpinnerModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
 })
 export class DetailsComponent implements OnInit {
   note: Note | null = null;
+  isLoading = true;
   showDeleteModal: boolean = false;
   constructor(
     private router: Router,
@@ -29,6 +31,7 @@ export class DetailsComponent implements OnInit {
         this.note = {
           ...note,
         };
+        this.isLoading = false;
       },
       error: (err) => console.log(err),
     });
