@@ -4,10 +4,20 @@ import { NoPostComponent } from '../no-post/no-post.component';
 import { NoteCardComponent } from '../note-card/note-card.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { UserService } from '../../services/user.service';
+import { SelectModule } from 'primeng/select';
+import { FormsModule } from '@angular/forms';
+import { Select } from 'primeng/select';
+import { Font } from '../../models/font';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NoPostComponent, NoteCardComponent, ProgressSpinnerModule],
+  imports: [
+    NoPostComponent,
+    NoteCardComponent,
+    ProgressSpinnerModule,
+    SelectModule,
+    FormsModule,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -18,6 +28,8 @@ export class DashboardComponent implements OnInit {
   ) {}
   isLoading = true;
   tags: { _id: string }[] = [];
+  fontType = 'serif';
+
   ngOnInit() {
     this.noteService.readAllNotes().subscribe({
       next: (notes) => {
@@ -67,5 +79,12 @@ export class DashboardComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  changeFontSize(event: Event) {
+    const fontType = (event.target as HTMLSelectElement).value;
+    this.fontType = fontType;
+    document.body.classList.remove('sans-serif', 'serif', 'monospace');
+    document.body.classList.add(fontType);
   }
 }
