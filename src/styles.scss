@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 $primary-color: #4a90e2;
-$font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 * {
   margin: 0;
@@ -8,14 +7,39 @@ $font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
+// Define SCSS variables
+$light-background-color: #ffffff;
+$light-text-color: #232530;
+
+$dark-background-color: #232530;
+$dark-text-color: #ffffff;
+
+// Light mode (default)
+:root {
+  --background-color: #{$light-background-color};
+  --text-color: #{$light-text-color};
+}
+
+// Dark mode overrides
+.dark-mode {
+  --background-color: #{$dark-background-color};
+  --text-color: #{$dark-text-color};
+}
+
+// body {
+//   background-color: $background-color;
+//   color: $text-color;
+// }
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  // font-family: $font-stack;
-  background: #f0f2f5;
-  color: black;
+  // background: #f0f2f5;
+  // color: black;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 body.sans-serif {

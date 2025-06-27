@@ -1,7 +1,19 @@
 <div class="navbar">
-  <a [routerLink]="['dashboard']" class="title"><span>CodeNote</span></a>
+  <button (click)="goHome()" class="title"><span>CodeNote</span></button>
 
   <div class="actions">
+    <div>
+      <label class="theme-toggle">
+        <!-- <span class="slider">{{ checked ? <i class="fa-solid fa-sun"></i> : <i class="fa-solid fa-moon"></i> }}</span> -->
+        @if(checked){
+        <i class="fa-solid fa-sun"></i>
+        }@else {
+        <i class="fa-solid fa-moon"></i>
+        }
+        <p-toggleswitch [(ngModel)]="checked" (click)="toggleTheme()" />
+      </label>
+    </div>
+
     <a [routerLink]="['create']" class="settings-btn">
       <i class="fa-solid fa-pen-to-square"></i>
     </a>
