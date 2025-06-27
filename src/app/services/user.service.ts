@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environment';
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   userToken: string = localStorage.getItem('token') || '';
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private errorService: ErrorService
+  ) {}
 
   setUserToken(token: string) {
     this.userToken = token;
@@ -28,14 +33,7 @@ export class UserService {
   }
 
   loginUser(userData: { username: string; password: string }) {
-    this.http.post(`${environment.baseURL}/user/login`, userData).subscribe({
-      next: (res: any) => {
-        this.setUserToken(res.accessToken);
-        localStorage.setItem('token', res.accessToken);
-        this.router.navigate(['notes']);
-      },
-      error: (err) => console.log(err), // create error service to handle errors
-    });
+    return this.http.post(`${environment.baseURL}/user/login`, userData);
   }
 
   logoutUser() {
