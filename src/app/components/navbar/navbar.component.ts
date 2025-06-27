@@ -5,6 +5,8 @@ import { NgForm } from '@angular/forms';
 import { NoteService } from '../../services/note.service';
 import { ToggleSwitch } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../services/theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,8 +19,14 @@ export class NavbarComponent {
   checked: boolean = true;
   constructor(
     public userService: UserService,
-    private noteService: NoteService
+    private noteService: NoteService,
+    private themeService: ThemeService,
+    private router: Router
   ) {}
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
 
   searchNote(form: NgForm) {
     this.term = form.value.term;
@@ -31,5 +39,9 @@ export class NavbarComponent {
       error: (err) => console.log(err),
     });
     form.reset();
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
   }
 }

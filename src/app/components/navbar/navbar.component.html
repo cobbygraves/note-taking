@@ -1,5 +1,5 @@
 <div class="navbar">
-  <a [routerLink]="['dashboard']" class="title"><span>CodeNote</span></a>
+  <button (click)="goHome()" class="title"><span>CodeNote</span></button>
 
   <div class="actions">
     <div>
@@ -10,7 +10,7 @@
         }@else {
         <i class="fa-solid fa-moon"></i>
         }
-        <p-toggleswitch [(ngModel)]="checked" />
+        <p-toggleswitch [(ngModel)]="checked" (click)="toggleTheme()" />
       </label>
     </div>
 
