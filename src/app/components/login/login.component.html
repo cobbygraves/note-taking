@@ -20,7 +20,9 @@
         formControlName="password"
       />
 
-      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      <button type="submit" [disabled]="!loginForm.valid">
+        {{ loading ? "Loading..." : "Login" }}
+      </button>
     </form>
   </div>
 </div>

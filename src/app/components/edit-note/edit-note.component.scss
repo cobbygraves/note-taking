@@ -14,17 +14,17 @@
   display: flex;
   margin-bottom: 20px;
   align-items: center;
-  color: black;
+  // color: black;
 }
 
 .note-content {
-  background: #fff;
-  color: black;
+  // background: #fff;
+  // color: black;
   width: 100%;
   max-width: 640px;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 10px #ccc;
 
   .title-input {
     font-size: 1.3rem;
@@ -32,6 +32,7 @@
     border: none;
     outline: none;
     padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 7px;
     width: 100%;
     // margin-bottom: 1.5rem;

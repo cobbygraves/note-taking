@@ -18,6 +18,8 @@ import { Toast } from 'primeng/toast';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
+  loading: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
+    this.loading = true;
     this.userService
       .loginUser({
         username: this.loginForm.value.email,
@@ -45,11 +48,13 @@ export class LoginComponent implements OnInit {
       })
       .subscribe({
         next: (res: any) => {
+          this.loading = false;
           this.userService.setUserToken(res.accessToken);
           localStorage.setItem('token', res.accessToken);
           this.router.navigate(['notes']);
         },
         error: ({ error }: any) => {
+          this.loading = false;
           this.errorService.setMessage(error);
           this.show();
         },
