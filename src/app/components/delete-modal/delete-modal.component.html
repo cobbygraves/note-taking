@@ -1,11 +1,17 @@
-<div class="modal">
+<div
+  class="modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="deleteModalTitle"
+  aria-describedby="deleteModalDesc"
+>
   <div class="modal-dialog">
     <div class="modal-header">
       <i class="fa-solid fa-trash"></i>
-      <h2>Delete Note</h2>
+      <h2 id="deleteModalTitle">Delete Note</h2>
     </div>
     <div class="modal-body">
-      <small>
+      <small id="deleteModalDesc">
         Are you sure you want to permanently delete this note?<br />
         This action cannot be undone.
       </small>
