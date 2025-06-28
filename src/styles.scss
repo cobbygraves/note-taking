@@ -26,18 +26,10 @@ $dark-text-color: #ffffff;
   --text-color: #{$dark-text-color};
 }
 
-// body {
-//   background-color: $background-color;
-//   color: $text-color;
-// }
-
-html,
 body {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  // background: #f0f2f5;
-  // color: black;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -54,8 +46,8 @@ body.monospace {
   font-family: monospace;
 }
 
-.p-select {
-  width: 100% !important;
-  // background-color: white !important;
-  // color: black !important;
-}
+// .p-select {
+//   width: 100% !important;
+//   // background-color: white !important;
+//   // color: black !important;
+// }

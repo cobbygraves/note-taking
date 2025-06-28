@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
+  height: 100vh;
 
   .note-preview {
     // background-color: #ffffff;
@@ -125,7 +126,7 @@
       text-decoration: underline;
       font-weight: 500;
       // background-color: #ccc;
-      color: #2b2929;
+      // color: #2b2929;
     }
   }
 
