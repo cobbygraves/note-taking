@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
     this.isLoading = true;
     this.noteService.getArchivedNotes().subscribe({
       next: (notes) => {
-        console.log(notes);
+        // console.log(notes);
         this.noteService.notes.set(notes);
         this.isLoading = false;
       },
