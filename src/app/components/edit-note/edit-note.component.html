@@ -3,16 +3,23 @@
     class="note-content"
     [formGroup]="addNoteForm"
     (ngSubmit)="updateNote()"
+    role="form"
+    aria-labelledby="editNoteTitle"
   >
-    <h2 class="new-post">Edit Note</h2>
+    <h2 id="editNoteTitle" class="new-post">Edit Note</h2>
     <input
       type="text"
       class="title-input"
       placeholder="Enter a title..."
       formControlName="title"
+      aria-required="true"
+      aria-describedby="titleError"
+      aria-label="Note title"
     />
     @if(addNoteForm.get('title')?.invalid && addNoteForm.get('title')?.touched){
-    <small *ngIf="addNoteForm.get('title')?.errors?.['required']"
+    <small
+      id="titleError"
+      *ngIf="addNoteForm.get('title')?.errors?.['required']"
       >Title is required</small
     >
     }
@@ -24,6 +31,7 @@
         type="text"
         placeholder="e.g. Work, Planning"
         formControlName="tags"
+        aria-label="Note tags"
       />
     </div>
 
@@ -36,15 +44,25 @@
       class="note-content"
       placeholder="Start typing your note here..."
       formControlName="content"
+      aria-required="true"
+      aria-describedby="contentError"
+      aria-label="Note content"
     ></textarea>
     @if(addNoteForm.get('content')?.invalid &&
     addNoteForm.get('content')?.touched){
-    <small *ngIf="addNoteForm.get('content')?.errors?.['required']"
+    <small
+      id="contentError"
+      *ngIf="addNoteForm.get('content')?.errors?.['required']"
       >Content is required</small
     >
     }
     <div class="actions">
-      <button class="save" type="submit" [disabled]="!addNoteForm.valid">
+      <button
+        class="save"
+        type="submit"
+        [disabled]="!addNoteForm.valid"
+        [attr.aria-disabled]="!addNoteForm.valid"
+      >
         {{ isLoading ? "Saving..." : "Save" }}
       </button>
       <button class="cancel" (click)="cancelUpdatePost()">Cancel</button>

@@ -1,5 +1,11 @@
 <div class="card">
-  <div (click)="showNote(note?.id)" class="card-content">
+  <div
+    (click)="showNote(note?.id)"
+    class="card-content"
+    role="button"
+    tabindex="0"
+    [attr.aria-label]="'View note titled ' + (note?.title || '')"
+  >
     <h2 class="title">{{ note?.title }}</h2>
     <div class="tags">
       @for(tag of note?.tags; track tag){
@@ -16,6 +22,12 @@
       <p-toggleswitch
         [(ngModel)]="checked"
         (onChange)="archiveNote(note?.id)"
+        role="switch"
+        tabindex="0"
+        [attr.aria-checked]="checked"
+        [attr.aria-label]="
+          'Toggle archive status for note titled ' + (note?.title || '')
+        "
       />
     </div>
     <div class="actions">
