@@ -1,59 +1,38 @@
 # NoteTaking
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+================
 
-## Development server
+## Overview
 
-To start a local development server, run:
+This project is a note-taking application built using Angular. It aims to provide a simple and intuitive way to create, edit, and manage notes.
 
-```bash
-ng serve
-```
+### Core Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- User authentication and authorization
+- Data storage and retrieval using a database
+- Note creation, editing, and deletion
+- Note searching and filtering based on tags, title and content.
 
-## Code scaffolding
+### Additional Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Support for multiple themes eg(dark & light theme)
+- Route guards on specific pages(Delete Notes, Edit Note and Create Note)
+- User fonts personalization from three preset fonts ie.(Monospace, Sans, Sans-serif)
 
-```bash
-ng generate component component-name
-```
+## Getting Started
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Prerequisites
 
-```bash
-ng generate --help
-```
+- Node.js 14+
+- Angular CLI 19.2.6+
 
-## Building
+### Installation
 
-To build the project run:
+- Clone the repository from `https://github.com/cobbygraves/note-taking`
+- Run `npm install` to install dependencies
+- Run `npm start` to start the development server
 
-```bash
-ng build
-```
+### Login Credentials To Access Protected Routes
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- email: `rmeocnis@yahoo.com`
+- Password: `codenote`
