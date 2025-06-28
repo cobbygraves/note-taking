@@ -45,7 +45,7 @@
     }
     <div class="actions">
       <button class="save" type="submit" [disabled]="!addNoteForm.valid">
-        Save Note
+        {{ isLoading ? "Saving..." : "Save" }}
       </button>
       <button class="cancel" (click)="cancelUpdatePost()">Cancel</button>
     </div>

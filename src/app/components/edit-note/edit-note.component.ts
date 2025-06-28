@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class EditNoteComponent implements OnInit {
   addNoteForm: FormGroup;
   noteId: string = '';
+  isLoading = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -43,21 +44,25 @@ export class EditNoteComponent implements OnInit {
   }
 
   updateNote() {
+    this.isLoading = true;
     if (this.addNoteForm.valid) {
       const note = this.addNoteForm.value;
       let updateTags: string[] = [];
       if (note.tags) {
         updateTags = note.tags.split(',');
       }
-      console.log(this.noteId);
+
       this.noteService
         .updateNote(this.noteId, { ...note, tags: updateTags })
         .subscribe({
           next: (value) => {
-            // console.log(value);
+            this.isLoading = false;
             this.router.navigate(['/notes']);
           },
-          error: (err) => console.log(err),
+          error: (err) => {
+            this.isLoading = false;
+            console.log(err);
+          },
         });
     }
   }
