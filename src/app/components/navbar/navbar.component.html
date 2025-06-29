@@ -30,12 +30,10 @@
         [(ngModel)]="term"
       />
     </form>
-    @if(userService.isLoggedIn()){
-    <button class="settings-btn"><i class="fa-solid fa-user"></i></button>
-    }@else {
-    <button class="settings-btn" (click)="userService.logoutUser()">
-      <i class="fa-solid fa-power-off"></i>
-    </button>
+    @if(isMobile){
+
+    <i class="fa-solid fa-bars" (click)="handleShowDrawer()"></i>
+
     }
   </div>
 </div>

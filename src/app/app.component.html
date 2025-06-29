@@ -1,5 +1,6 @@
 @if( !isLoginPage ){
-<app-navbar></app-navbar>
+<app-navbar (sliderListener)="showDrawer()"></app-navbar>
 }
-
+<p-drawer [(visible)]="visible" header="CodeNote" [baseZIndex]="3000">
+</p-drawer>
 <router-outlet />

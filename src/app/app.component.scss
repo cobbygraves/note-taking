@@ -2,3 +2,99 @@ p {
   text-align: center;
   font-weight: bold;
 }
+
+.left-side {
+  padding: 13px;
+  @media (min-width: 1024px) {
+    display: block;
+  }
+  p {
+    margin: 13px;
+    color: #757575;
+    font-weight: 500;
+    font-size: 0.8rem;
+
+    @media (min-width: 1280px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .sidebar-item__label {
+    font-size: 0.9rem;
+  }
+
+  .logout {
+    position: absolute;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    bottom: 10px;
+    font-weight: 500;
+    color: #f32727;
+    padding: 0.5em 1em;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 0.7em;
+
+  i {
+    font-size: 15px;
+    @media (min-width: 1280px) {
+      font-size: 20px;
+    }
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 11px;
+    color: gray;
+
+    @media (min-width: 1280px) {
+      font-size: 17px;
+    }
+  }
+
+  &:hover {
+    background-color: #e0e0e0;
+    border-radius: 7px;
+  }
+}
+
+hr {
+  border: 0.5px solid #bab8b8;
+  margin: 0.5em 0;
+}
+
+.select-container {
+  width: 100%;
+
+  select {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    // background-color: #fff;
+    // color: #333;
+    cursor: pointer;
+
+    option {
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+}
