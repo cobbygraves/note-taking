@@ -59,7 +59,7 @@
         outline: none;
         background: transparent;
         font-size: 0.95rem;
-        width: 125px;
+        width: 100%;
         // color: black;
 
         &::placeholder {
@@ -84,5 +84,10 @@
         color: #000;
       }
     }
+  }
+
+  i {
+    font-size: 20px;
+    cursor: pointer;
   }
 }

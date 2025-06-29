@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { NgForm } from '@angular/forms';
@@ -14,15 +14,35 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   term: string = '';
   checked: boolean = true;
+  isMobile = false;
+  sliderListener = output();
+
   constructor(
     public userService: UserService,
     private noteService: NoteService,
     private themeService: ThemeService,
     private router: Router
   ) {}
+
+  ngOnInit() {
+    this.checkScreenSize();
+  }
+
+  handleShowDrawer() {
+    this.sliderListener.emit();
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  private checkScreenSize() {
+    this.isMobile = window.innerWidth <= 768;
+  }
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
